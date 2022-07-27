@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+.header_logo{
+    margin: 0 auto;
+    width: 400px;
+    height: 50px;
+    text-align: center;
+}
