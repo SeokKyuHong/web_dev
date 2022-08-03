@@ -29,14 +29,25 @@ def new_create():
     if request.method == 'GET':
         return render_template('create.html')
     elif request.method == 'POST':
-        global nextId
+        # global nextId
+        url = '/read/'
         title = request.form['title']
         body = request.form['body']
-        newTopic = {'id': nextId, 'title': title, 'body': body}
-        topics.append(newTopic)
-        url = "/read/" + str(nextId)+'/'
-        nextId = nextId +1
-        return title+','+body
+        # newTopic = {'id': nextId, 'title': title, 'body': body}
+        # topics.append(newTopic)
+        # nextId = nextId +1
+        # return title+','+body
+        return redirect(url)
+       
+
+@app.route("/read/", methods=['GET', 'POST'])
+def read():
+    if request.method == 'POST':
+        return render_template('read.html')
+    elif request.method == 'GET':
+        return render_template('read.html')
+
+
 
 
 app.run(port=5001, debug=True)
